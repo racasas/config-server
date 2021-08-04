@@ -1,0 +1,38 @@
+constants:
+    api:
+        cert:
+            name: apikey.jks
+            pass: apikey
+            path: /usr/app/
+    drupal:
+        cert:
+            name: test.jks
+            pass: test12
+            path: /usr/app/
+        url:
+            inn: https://cms-int-web:443
+            out: http://cms-int-web
+    guest:
+        rol: maker
+server:
+    port: 8080
+    ssl:
+        key-alias: apikey
+        key-password: apikey
+        key-store: classpath:apikey.jks
+        key-store-password: apikey
+        key-store-type: pkcs12
+spring:
+    datasource:
+        password: postgres
+        url: jdbc:postgresql://localhost:2030/drupal
+        username: postgres
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQL81Dialect
+                format_sql: true
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+        show-sql: false
